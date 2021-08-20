@@ -7,8 +7,6 @@
          (f-recursive (- n 2))
          (f-recursive (- n 3)))))
 
-; How I found out how to make an iterative process
-
 ; f(4) = f(3) + f(2) + f(1)
 ; Let 1st term = a, 2nd term = b, 3rd term = c
 ; f(4) = a + b + c
@@ -29,5 +27,5 @@
           (else (iter (+ a b c) a b (+ cnt 1)))))
   
   ; we skip 3 iterations by setting cnt to 2
-  ; (no need to check f(2), f(1) and f(0)
+  ; (no need to calculate f(2), f(1) and f(0))
   (iter 2 1 0 2))
