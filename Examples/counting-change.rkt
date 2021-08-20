@@ -17,4 +17,4 @@
           ((= kinds-of-coins 5) 50)))
   (cc amount 5))
 
-(count-change 100)
+(count-change 11)
