@@ -1,9 +1,9 @@
 #lang racket
 
-(define (compose f g)
-  (lambda(x) (f (g x))))
-
 (define (repeated f n)
+  (define (compose f g)
+    (lambda(x) (f (g x))))
+  
   (define (iter result cnt)
     (if (= cnt n)
         result
@@ -11,4 +11,5 @@
               (+ cnt 1))))
   (iter (lambda(x) x) 0))
 
-((repeated sqr 2) 5)
+((repeated sqr 2) 5) ; 625
+((repeated sqr 2) 2) ; 16
