@@ -17,14 +17,14 @@
 
 (define (car x)
   ((selector even?
-            (lambda(n) (/ n 2))
-            inc)
+             (lambda(n) (/ n 2))
+             inc)
    x 0))
 
 (define (cdr x)
   ((selector (lambda(x) (= (remainder x 3) 0))
-            (lambda(x) (/ x 3))
-            inc)
+             (lambda(x) (/ x 3))
+             inc)
    x 0))
 
 
