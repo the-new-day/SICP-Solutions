@@ -9,7 +9,6 @@
 (define (upper-bound x)
   (cdr x))
 
-(define i (make-interval 9 2))
-
-(lower-bound i) ; 2
-(upper-bound i) ; 9
+(define (sub-interval x y)
+  (make-interval (- (lower-bound x) (lower-bound y))
+                 (- (upper-bound x) (upper-bound y))))
