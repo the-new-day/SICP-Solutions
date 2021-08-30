@@ -1,5 +1,32 @@
 #lang racket
 
+(define (accumulate op initial sequence) 
+  (if (null? sequence) 
+      initial 
+      (op (car sequence) 
+          (accumulate op initial (cdr sequence))))) 
+  
+(define (enumerate-interval low high) 
+  (if (> low high) 
+      '() 
+      (cons low (enumerate-interval (+ low 1) high)))) 
+  
+(define (flatmap proc seq) 
+  (accumulate append '() (map proc seq)))
+
+(define (prime? x) 
+  (define (test divisor) 
+    (cond ((> (* divisor divisor) x) true) 
+          ((= 0 (remainder x divisor)) false) 
+          (else (test (+ divisor 1))))) 
+  (test 2)) 
+
+(define (prime-sum? pair) 
+  (prime? (+ (car pair) (cadr pair)))) 
+  
+(define (make-pair-sum pair) 
+  (list (car pair) (cadr pair) (+ (car pair) (cadr pair)))) 
+
 (define (unique-pairs n)
   (flatmap (lambda(i)
              (map (lambda(j) (list i j))
@@ -11,4 +38,4 @@
        (filter prime-sum?
                (unique-pairs n))))
 
-(unique-pairs 6)
+(prime-sum-pairs 6)
