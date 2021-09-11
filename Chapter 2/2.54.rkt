@@ -8,16 +8,10 @@
         ((and (number? list1)
               (number? list1)) (= list1 list2))
         ((and (symbol? list1)
-              (symbol? list2))
-         (if (eq? list1 list2)
-             true
-             false))
+              (symbol? list2)) (eq? list1 list2))
         ((and (list? list1)
-              (list? list2))
-         (if (and (equal? (car list1) (car list2))
-                  (equal? (cdr list1) (cdr list2)))
-             true
-             false))
+              (list? list2)) (and (equal? (car list1) (car list2))
+                                  (equal? (cdr list1) (cdr list2))))
         (else false)))
 
 (equal? '(this is a list) '(this is a list))
