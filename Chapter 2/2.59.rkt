@@ -26,7 +26,7 @@
          (union-set (cons (car s2) s1)
                     (cdr s2)))))
 
-(define set1 (list 1 2 3))
-(define set2 (list 4 5 6 7 8 9 10))
+(define set1 (list 1 2 3 4 5))
+(define set2 (list 4 5 6 7 8))
 
 (union-set set1 set2)
